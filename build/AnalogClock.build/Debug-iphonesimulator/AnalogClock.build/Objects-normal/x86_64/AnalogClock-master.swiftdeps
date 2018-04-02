@@ -1,0 +1,7 @@
+version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
+options: "e87356dc27613a0d19e04920f154ba2a"
+build_time: [1522675810, 978819000]
+inputs:
+  "/Users/jabdul/Desktop/AnalogClock/AnalogClock/ViewController.swift": [1522675297, 0]
+  "/Users/jabdul/Desktop/AnalogClock/AnalogClock/ClockView.swift": [1522675810, 0]
+  "/Users/jabdul/Desktop/AnalogClock/AnalogClock/AppDelegate.swift": [1522674306, 0]
