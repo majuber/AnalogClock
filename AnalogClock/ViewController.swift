@@ -14,7 +14,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("Test")
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name:NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground), name:NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
     }
