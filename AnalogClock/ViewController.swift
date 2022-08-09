@@ -14,9 +14,8 @@ class ViewController: UIViewController, CAAnimationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Test")
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name:NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground), name:NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name:NSNotification.Name., object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground), name:NSNotification.Name.didEnterBackgroundNotification, object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -53,7 +52,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         let hourLayer = CAShapeLayer()
         hourLayer.path = hourHandPath.cgPath
         hourLayer.lineWidth = hourHandWidth
-        hourLayer.lineCap = kCALineCapButt
+        hourLayer.lineCap = CAShapeLayerLineCap.butt
         hourLayer.strokeColor = UIColor.black.cgColor
         hourLayer.rasterizationScale = UIScreen.main.scale;
         hourLayer.shouldRasterize = true
@@ -65,7 +64,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         let minuteLayer = CAShapeLayer()
         minuteLayer.path = minuteHandPath.cgPath
         minuteLayer.lineWidth = minuteHandWidth
-        minuteLayer.lineCap = kCALineCapButt
+        minuteLayer.lineCap = CAShapeLayerLineCap.butt
         minuteLayer.strokeColor = UIColor.gray.cgColor
         minuteLayer.rasterizationScale = UIScreen.main.scale;
         minuteLayer.shouldRasterize = true
@@ -77,7 +76,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         let secondLayer = CAShapeLayer()
         secondLayer.path = secondHandPath.cgPath
         secondLayer.lineWidth = secondHandWidth
-        secondLayer.lineCap = kCALineCapButt
+        secondLayer.lineCap = CAShapeLayerLineCap.butt
         secondLayer.strokeColor = UIColor.red.cgColor
         secondLayer.rasterizationScale = UIScreen.main.scale;
         secondLayer.shouldRasterize = true
@@ -99,7 +98,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         let animation = CABasicAnimation(keyPath:"transform.rotation.z")
         animation.duration = dur
         animation.delegate = self
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         
         animation.fromValue = 0
         animation.repeatCount = Float.infinity
@@ -113,7 +112,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         let cy = y
         var r  = radius * 0.52
         var points = [CGPoint]()
-        var angle = degree2radian(6)
+        let angle = degree2radian(6)
         func newPoint (_ t:Int) {
             let xpo = cx - r * cos(angle * CGFloat(t)+degree2radian(adjustment))
             let ypo = cy - r * sin(angle * CGFloat(t)+degree2radian(adjustment))
